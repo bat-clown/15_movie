@@ -11,9 +11,8 @@
     </div>
     <div class="screening-bd" style="visibility:visible;overflow:hidden;position: relative;;
     z-index:2;left: 0;width: 770px;">
-      <ul class="ui-slide-content" style="margin:0;padding:0;position:relative;list-style-type:none;
-      z-index:1;">
-        <li-parent></li-parent>
+      <ul class="ui-slide-content">
+        <li-parent   v-for="(item,index) in movieList" :key="index" :item="item"></li-parent>
       </ul>
     </div>
   </div>
@@ -24,12 +23,13 @@
   export default{
       data(){
           return {
-
+            movieList:null
           }
       },
       mounted(){
 //          this.$http.jsonp("https://api.douban.com/v2/movie/in_theaters").then(function(res){
-//              console.log(JSON.parse(res.bodyText));
+//              this.movieList = JSON.parse(res.bodyText);
+//            console.log(this.movieList);
 //          },function(res){
 //              console.log(res);
 //          });
@@ -39,16 +39,17 @@
               template:`  <li style="overflow:hidden;float:left;width:134px;height:246px;">
                             <a href="javascript:void(0);" target="">
                                  <img src="" alt="" onerror="javascript:this.src='http://ww1.sinaimg.cn/large/6259bc22tw1ekt4n6metmj203c04qdfl.jpg';">
-                                 <span class="item-title" title="">红色行动</span>
+                                 <span class="item-title" title="">{{item.title}}</span>
                                  <span class="item-pubtime" title="">2018/02/02</span>
                             </a>
                           </li>
                         `,
-            data(){
+              data(){
                   return {
 
                   }
-            }
+              },
+              props:['item']
           }
       }
   }
