@@ -65,22 +65,6 @@
   overflow: hidden
 }
 
-.ui-slide-content {
-  position: absolute;
-  white-space: nowrap;
-  margin: 0;
-  padding: 0
-}
-
-.ui-slide-item {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  vertical-align: top;
-  letter-spacing: normal;
-  word-spacing: normal
-}
-
 .gallery-ui-slide-control {
   float: right;
   margin: 5px 0 0 15px

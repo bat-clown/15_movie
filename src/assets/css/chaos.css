@@ -1,23 +1,4 @@
 
-.ui-slide-content {
-  letter-spacing: -0.31em;
-  *letter-spacing: normal;
-  *word-spacing: -0.43em;
-  white-space: nowrap;
-  position: absolute;
-  font-size: 0
-}
-
-.ui-slide-item {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  vertical-align: top;
-  letter-spacing: normal;
-  word-spacing: normal;
-  font-size: 12px
-}
-
 .ui-slide-control {
   float: right;
   margin: 5px 0 0 15px
@@ -74,26 +55,6 @@
   background-color: #268dcd;
   opacity: 1
 }
-
-#screening .title {
-  letter-spacing: -0.31em;
-  *letter-spacing: normal;
-  *word-spacing: -0.43em;
-  font-size: 14px;
-  white-space: nowrap;
-  height: 22px;
-  overflow: hidden
-}
-
-#screening .title a:link, #screening .title a:visited, #screening .title a:hover, #screening .title a:active {
-  color: #333
-}
-
-#screening .title a:hover {
-  background: none;
-  color: #222
-}
-
 #screening h2 span {
   margin-left: 15px
 }
@@ -102,11 +63,6 @@
   overflow: hidden;
   position: relative;
   height: 270px
-}
-
-#screening .ui-slide-content {
-  position: absolute;
-  left: 0
 }
 
 #screening .ui-slide-item {
@@ -126,17 +82,6 @@
   height: 161px;
   overflow: hidden;
   margin-bottom: 12px
-}
-
-#screening .title a, #screening .new-show {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-  vertical-align: top;
-  letter-spacing: normal;
-  word-spacing: normal;
-  height: 24px;
-  line-height: 24px
 }
 
 #screening .new-show {

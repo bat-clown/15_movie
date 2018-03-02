@@ -22,7 +22,12 @@ a {
   text-decoration: none;
   color: #666;
 }
-
+a:visited {
+  color: #666699;
+}
+a:link {
+  color: #37a;
+}
 #wrapper {
   width: 1040px
 }
