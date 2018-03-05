@@ -2,8 +2,8 @@
   <div id="screening" class="s" data-dstat-areaid="70" data-dstat-mode="click,expose">
     <div class="screening-hd">
       <div class="ui-slide-control">
-        <span class="prev-btn"><a class="btn-prev" href="javascript:void(0)"></a></span>
-        <span class="next-btn"><a class="btn-next" href="javascript:void(0)"></a></span>
+        <span class="prev-btn"><a class="btn-prev" href="javascript:void(0)" @click="prevPage"></a></span>
+        <span class="next-btn"><a class="btn-next" href="javascript:void(0)" @click="nextPage"></a></span>
       </div>
       <div class="slide-tip"><span class="ui-slide-index">{{currentNum}}</span> / <span class="ui-slide-max">{{totalNum}}</span></div>
       <h2>正在热映<span><a href="/cinema/nowplaying/">全部正在热映»</a></span><span><a
@@ -23,24 +23,36 @@
       data(){
           return {
             movieList:[],
-            left:-700
+            left:0
           }
       },
+    methods:{
+          nextPage(){
+              this.left -= 700;
+              if(this.left < -2100){
+                  this.left = 0;
+              }
+          },
+          prevPage(){
+              this.left += 700;
+              if(this.left > 0){
+                  this.left = -2100
+              }
+          }
+    },
       computed:{
           totalNum:function () {
             return Math.ceil(this.movieList.length/5);
           },
           currentNum:function () {
-            return Math.abs(this.left/700);
+            return Math.abs(this.left/700)+1;
           }
       },
       mounted(){
           this.$http.jsonp("https://api.douban.com/v2/movie/in_theaters").then(function(res){
             this.movieList = JSON.parse(res.bodyText).subjects;
-            console.log(this.movieList);
           },function(res){
             this.movieList = res;
-            console.log(this.movieList);
           });
       },
       components:{
@@ -49,7 +61,7 @@
                             <ul>
                               <li class="poster">
                                 <a href="javascript:void(0);" target="">
-                                   <img :src="item.images.small" alt="" onerror="javascript:this.src='http://ww1.sinaimg.cn/large/6259bc22tw1ekt4n6metmj203c04qdfl.jpg';">
+                                   <img :src="item.images.small" :alt="item.title" onerror="javascript:this.src='http://ww1.sinaimg.cn/large/6259bc22tw1ekt4n6metmj203c04qdfl.jpg';">
                                 </a>
                               </li>
                               <li class="title">
@@ -185,5 +197,9 @@
   #screening .ticket_btn a:link, #screening .ticket_btn a:visited, #screening .ticket_btn a:hover, #screening .ticket_btn a:active {
     background: none;
     color: #fff;
+  }
+  .ui-slide-control {
+    float: right;
+    margin: 5px 0 0 15px;
   }
 </style>

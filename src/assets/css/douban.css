@@ -10250,7 +10250,7 @@ a.create-new-album:hover {
 .sina_logo {
   width: 17px;
   height: 16px;
-  background: url(/f/shire/3a38704cc777f22cb17640ecabd6be4966c40e9b/pics/sina_fav1.png) no-repeat 0 0
+  /*background: url(/f/shire/3a38704cc777f22cb17640ecabd6be4966c40e9b/pics/sina_fav1.png) no-repeat 0 0*/
 }
 
 #book-user {
@@ -10261,7 +10261,7 @@ a.create-new-album:hover {
 
 .android_app {
   width: 100%;
-  background: url(/f/shire/8928444d73f1463ca35b40e592117363e83ed20b/pics/book/pic34.jpg) no-repeat right 0;
+  /*background: url(/f/shire/8928444d73f1463ca35b40e592117363e83ed20b/pics/book/pic34.jpg) no-repeat right 0;*/
   height: 450px;
   border-bottom: 1px dashed #ddd;
   margin-bottom: 20px
@@ -10279,7 +10279,7 @@ a.create-new-album:hover {
 .book_qrcode {
   height: 135px;
   width: 135px;
-  background: url(/f/shire/a86a2bf11e7bd85bdbde698d0ee28387ec8732a0/pics/book/cart_api.png) no-repeat;
+  /*background: url(/f/shire/a86a2bf11e7bd85bdbde698d0ee28387ec8732a0/pics/book/cart_api.png) no-repeat;*/
   float: right
 }
 
@@ -10289,7 +10289,7 @@ a.create-new-album:hover {
   top: -5px;
   width: 60px;
   height: 10px;
-  background-image: url(/f/shire/d8cfd139ffd4e3dd0ff63c227d7b6e09e9e48126/pics/book/sup.jpg);
+  /*background-image: url(/f/shire/d8cfd139ffd4e3dd0ff63c227d7b6e09e9e48126/pics/book/sup.jpg);*/
   background-repeat: no-repeat;
   text-indent: -9999px;
   line-height: 10px
@@ -10361,7 +10361,7 @@ div.comment-item {
 }
 
 .a_folder .bn-arrow, .a_unfolder .bn-arrow {
-  background: url(/f/shire/30d6b18445bb4f47709f1c1ae7b5c7496e5a6fb2/pics/review-expand.png) no-repeat 0 0
+  /*background: url(/f/shire/30d6b18445bb4f47709f1c1ae7b5c7496e5a6fb2/pics/review-expand.png) no-repeat 0 0*/
 }
 
 .a_unfolder .bn-arrow {
@@ -10384,11 +10384,11 @@ div.comment-item {
   display: inline-block;
   *display: inline;
   zoom: 1;
-  background: url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) no-repeat;
-  background: -webkit-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;
-  background: -moz-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;
-  background: -o-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;
-  background: -ms-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;
+  /*background: url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) no-repeat;*/
+  /*background: -webkit-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;*/
+  /*background: -moz-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;*/
+  /*background: -o-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;*/
+  /*background: -ms-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;*/
   width: 75px;
   height: 15px;
   margin: 1px 0 0 0;
@@ -10448,11 +10448,11 @@ div.comment-item {
   display: inline-block;
   *display: inline;
   zoom: 1;
-  background: url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) no-repeat;
-  background: -webkit-image-set(url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) 1x, url(/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png) 2x) no-repeat;
-  background: -moz-image-set(url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) 1x, url(/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png) 2x) no-repeat;
-  background: -o-image-set(url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) 1x, url(/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png) 2x) no-repeat;
-  background: -ms-image-set(url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) 1x, url(/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png) 2x) no-repeat;
+  /*background: url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) no-repeat;*/
+  /*background: -webkit-image-set(url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) 1x, url(/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png) 2x) no-repeat;*/
+  /*background: -moz-image-set(url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) 1x, url(/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png) 2x) no-repeat;*/
+  /*background: -o-image-set(url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) 1x, url(/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png) 2x) no-repeat;*/
+  /*background: -ms-image-set(url(/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png) 1x, url(/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png) 2x) no-repeat;*/
   width: 55px;
   height: 11px;
   margin: 0 3px 0 0;

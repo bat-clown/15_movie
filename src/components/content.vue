@@ -4,6 +4,7 @@
       <div class="grid-16-8 clearfix">
         <div class="article">
           <hot></hot>
+          <recent></recent>
         </div>
       </div>
     </div>
@@ -12,10 +13,12 @@
 
 
 <script>
-import hot from './content/hot.vue'
+import hot from './content/hot.vue';
+import recent from './content/recent.vue'
   export default{
     components:{
-      'hot':hot
+      'hot':hot,
+      'recent':recent
     }
   }
 </script>

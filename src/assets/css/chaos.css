@@ -1,35 +1,4 @@
 
-.ui-slide-control {
-  float: right;
-  margin: 5px 0 0 15px
-}
-
-.ui-slide-control a {
-  display: block;
-  float: left;
-  width: 18px;
-  height: 18px;
-  margin-right: 5px;
-  cursor: pointer;
-  background: url(../img/slide_swithc_2.png) no-repeat
-}
-
-.ui-slide-control .btn-prev {
-  background-position: 0 0
-}
-
-.ui-slide-control .prev-btn .btn-disabled {
-  background-position: 0 -18px
-}
-
-.ui-slide-control .btn-next {
-  background-position: -18px 0
-}
-
-.ui-slide-control .next-btn .btn-disabled {
-  background-position: -18px -18px
-}
-
 .slide-tip {
   float: right;
   line-height: 30px;
@@ -57,31 +26,6 @@
 }
 #screening h2 span {
   margin-left: 15px
-}
-
-#screening .screening-bd {
-  overflow: hidden;
-  position: relative;
-  height: 270px
-}
-
-#screening .ui-slide-item {
-  font-size: 12px;
-  text-align: center;
-  margin-right: 25px;
-  width: 115px;
-  height: 270px;
-  overflow: hidden
-}
-
-#screening .ui-slide-item img {
-  width: 128px
-}
-
-#screening .poster {
-  height: 161px;
-  overflow: hidden;
-  margin-bottom: 12px
 }
 
 #screening .new-show {
