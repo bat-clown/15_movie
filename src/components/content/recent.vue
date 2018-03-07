@@ -27,7 +27,7 @@
         </div>
         <div class="slide-ctrl ui-slide-control">
           <a class="btn-prev" href="javascript:void(0)" @click="prevClick"></a>
-          <i-parent v-for="(dot,indexD) in num" :key="indexD" :message="index" :indexD="indexD" @up="handle"></i-parent>
+            <i-parent v-for="(dot,indexD) in num" :key="indexD" :message="index" :indexD="indexD" @up="handle"></i-parent>
           <a class="btn-next" href="javascript:void(0)" @click="nextClick"></a>
         </div>
       </div>
@@ -37,11 +37,13 @@
 
 
 <script>
+  import Vue from 'vue';
+  var vm = new Vue();
   export default{
     data(){
       return {
         movieList: [],
-        labelList: ['热门', '最新', '豆瓣高分', '冷门佳片', '华语', '欧美', '韩国', '日本'],
+        labelList: ['热门', '最新','豆瓣高分','冷门佳片','华语','欧美','韩国','日本'],
         left: 0,
         index: 0
       }
@@ -135,22 +137,31 @@
       'label-parent': {
         template: `<label :class="{activate:isActive}">
                       {{item}}
-                      <input type="radio" name="tag" :value="item" :checked="checked" >
-                    </label>`,
+                      <input type="radio" name="lover" :value="item" v-model="in_value" @click="update">
+                   </label>`,
         props: ['item', 'index'],
         data(){
           return {
-              isActive:false,
-              checked:''
+            in_value:'热门',
+            isActive:false
           }
         },
-        created() {
-          if(this.index === 0){
-              this.isActive = true;
-              this.checked = 'checked'
-          }
+        methods:{
+            update(){
+                vm.$emit('hehe');
+                this.$nextTick(function () {
+                  this.isActive = this.in_value === this.item;
+                })
+            },
+        },
+        created(){
+            let _self = this;
+            vm.$on('hehe',function () {
+                _self.isActive = false
+            })
         }
       }
+
     }
   }
 </script>
@@ -235,7 +246,7 @@
   }
 
   .gaia .tags label input {
-    display: none;
+    /*display: none;*/
   }
 
   .gaia .fliter-wp .more-link {
