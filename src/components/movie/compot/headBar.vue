@@ -3,7 +3,7 @@
     <div class="nav-wrap">
       <div class="nav-primary">
         <div class="nav-logo">
-          <a href="https://movie.douban.com">豆瓣电影</a>
+          <a href="https://movie.douban.com">豆瓣呵哈</a>
         </div>
         <div class="nav-search">
           <form action="https://movie.douban.com/subject_search" method="get">

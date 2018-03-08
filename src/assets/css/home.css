@@ -74,14 +74,6 @@
   margin-bottom: 30px
 }
 
-#billboard {
-  margin-bottom: 50px
-}
-
-#billboard h2 {
-  margin-bottom: 5px
-}
-
 #new-movies {
   margin-bottom: 16px
 }
@@ -128,12 +120,6 @@
 
 #movie_home_left_bottom {
   margin-bottom: 20px
-}
-
-#billboard, #box-office {
-  display: inline-block;
-  *display: inline;
-  zoom: 1
 }
 
 #subject-tip h3 {

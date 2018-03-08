@@ -7,7 +7,7 @@
           <form action="get" class="gaia_frm" autocomplete="off">
             <div class="tags">
               <div class="tag-list">
-                <label-parent v-for="(item,index) in labelList" :item="item" :key="index" :index="index"></label-parent>
+                <label-parent v-for="(item,index) in labelList" :item="item" :key="index" :index="index" @haha="change"></label-parent>
               </div>
             </div>
           </form>
@@ -43,9 +43,11 @@
     data(){
       return {
         movieList: [],
-        labelList: ['热门', '最新','豆瓣高分','冷门佳片','华语','欧美','韩国','日本'],
+        labelList: ['即将上映', 'top250'],
         left: 0,
-        index: 0
+        index:0,
+        url:['https://api.douban.com/v2/movie/coming_soon',
+             'https://api.douban.com/v2/movie/top250']
       }
     },
     computed: {
@@ -91,10 +93,17 @@
       handle(msg){
         this.index = msg;
         this.left = -700 * msg;
+      },
+      change(msg){
+        this.$http.jsonp(this.url[msg]).then(function (res) {
+          this.movieList = JSON.parse(res.bodyText).subjects;
+        }, function (res) {
+          this.movieList = res;
+        });
       }
     },
     mounted(){
-      this.$http.jsonp("https://api.douban.com/v2/movie/coming_soon").then(function (res) {
+      this.$http.jsonp(this.url[0]).then(function (res) {
         this.movieList = JSON.parse(res.bodyText).subjects;
       }, function (res) {
         this.movieList = res;
@@ -107,9 +116,14 @@
                 <div class="cover-wp">
                   <img :src="item.images.small" :alt="item.title">
                 </div>
-                <p>{{item.title}}</p>
+                <p>{{item.title}}<strong>{{rate}}</strong></p>
               </a>`,
-        props: ['item']
+        props: ['item'],
+        computed:{
+            rate(){
+              return this.item.rating.average === 0 ? '' : this.item.rating.average;
+            }
+        }
       },
       'i-parent': {
         template: `
@@ -142,13 +156,14 @@
         props: ['item', 'index'],
         data(){
           return {
-            in_value:'热门',
+            in_value:'即将上映',
             isActive:false
           }
         },
         methods:{
             update(){
                 vm.$emit('hehe');
+                this.$emit('haha',this.index);
                 this.$nextTick(function () {
                   this.isActive = this.in_value === this.item;
                 })
@@ -158,7 +173,10 @@
             let _self = this;
             vm.$on('hehe',function () {
                 _self.isActive = false
-            })
+            });
+            if(this.index === 0){
+                this.isActive = true;
+            }
         }
       }
 
@@ -191,6 +209,7 @@
     padding-bottom: 10px;
     border-bottom: 1px solid #eaeaea;
     margin-bottom: 18px;
+    line-height: 21px;
   }
 
   .hotMovie {
@@ -309,6 +328,7 @@
 
   .gaia .item strong {
     color: #e09015;
+    margin-left: 5px;
   }
 
   .ui-slide-control a {
@@ -317,7 +337,7 @@
     height: 18px;
     margin-right: 5px;
     cursor: pointer;
-    background: url("../../../static/imgs/slide.png") no-repeat;
+    background: url("../../../../../static/imgs/slide.png") no-repeat;
   }
 
   .gaia .slider .slide-ctrl {

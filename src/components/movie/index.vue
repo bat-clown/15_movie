@@ -9,9 +9,9 @@
 
 
 <script>
-  import topBar from './topBar.vue'
-  import headBar from './headBar.vue'
-  import contentHa from './content.vue'
+  import topBar from './compot/topBar.vue'
+  import headBar from './compot/headBar.vue'
+  import contentHa from './compot/content.vue'
 
 
 

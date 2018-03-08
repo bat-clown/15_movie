@@ -168,41 +168,6 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   min-height: 420px
 }
 
-#footer {
-  color: #999;
-  padding: 6px 0;
-  margin-top: 40px;
-  overflow: hidden;
-  zoom: 1;
-  border-top: 1px dashed #ddd
-}
-
-.grid-16-8 .article {
-  float: left;
-  width: 590px;
-  padding-right: 40px
-}
-
-.grid-16-8 .article .switch-to-shuo {
-  float: right;
-  margin-top: -45px
-}
-
-.grid-16-8 .article .switch-to-shuo a {
-  display: block;
-  width: 134px;
-  height: 38px;
-  background: url(/f/shire/6822457a2fc71115d0774dfaf5c9d245577d5992/pics/switch_to_shuo.png) no-repeat left top
-}
-
-.grid-16-8 .article .switch-to-shuo a:hover {
-  background-position: left -38px
-}
-
-.grid-16-8 .article .switch-to-shuo a:active {
-  background-position: left -76px
-}
-
 .grid-16-8 .aside {
   float: right;
   width: 310px
@@ -212,12 +177,6 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   float: left;
   width: 150px;
   margin-right: 10px
-}
-
-.grid-4-14-6 .article {
-  float: left;
-  width: 540px;
-  padding-right: 10px
 }
 
 .grid-4-14-6 .aside {
@@ -245,27 +204,6 @@ label {
   font-family: Tahoma;
   vertical-align: middle
 }
-
-#footer .gray-link a:link, #footer .gray-link a:visited, #footer .gray-link a:active {
-  color: #999;
-  background: none
-}
-
-#footer .gray-link a:hover {
-  color: #fff;
-  background: #999
-}
-
-#footer .blue-link a:link, #footer .blue-link a:visited, #footer .blue-link a:active {
-  color: #37a;
-  background: none
-}
-
-#footer .blue-link a:hover {
-  color: #fff;
-  background: #37a
-}
-
 a.processing:link, a.processing:visited {
   color: #666
 }
@@ -5930,10 +5868,6 @@ table.olt thead th {
 .doulist-add-btn {
   float: left;
   margin-right: 15px
-}
-
-.fleft {
-  float: left
 }
 
 .fright {

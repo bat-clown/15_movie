@@ -134,7 +134,7 @@
     margin-bottom: 12px;
   }
   #screening .ui-slide-content img {
-    width: 128px;
+    width: 117px;
   }
   #screening .title {
     letter-spacing: -0.31em;
@@ -164,7 +164,7 @@
     background-position: 0 -11px;
     display: inline-block;
     zoom: 1;
-    background: url("../../../static/imgs/star_rating.png");
+    background: url("../../../../../static/imgs/star_rating.png");
     height: 11px;
     width: 55px;
     margin:0 3px 0 0;
