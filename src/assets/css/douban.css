@@ -158,21 +158,6 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus {
   *display: inline;
   *zoom: 1
 }
-
-#wrapper {
-  width: 950px;
-  margin: 0 auto
-}
-
-#content {
-  min-height: 420px
-}
-
-.grid-16-8 .aside {
-  float: right;
-  width: 310px
-}
-
 .grid-4-14-6 .nav {
   float: left;
   width: 150px;
@@ -631,11 +616,6 @@ h2 {
 .cc {
   text-align: center
 }
-
-.ll {
-  float: left
-}
-
 .rr {
   float: right
 }
@@ -1294,11 +1274,6 @@ blockquote {
 .errnotnull {
   color: #ff0000
 }
-
-.indent {
-  word-break: break-all
-}
-
 #table {
   float: left;
   margin: 0 -310px 0 0;
@@ -2024,23 +1999,6 @@ wbr:after {
   width: 415px
 }
 
-#mainpic {
-  margin: 3px 0 0 0;
-  float: left;
-  text-align: center;
-  margin: 3px 12px 0 0;
-  max-width: 155px;
-  overflow: hidden
-}
-
-#mainpic a img {
-  margin-bottom: 10px
-}
-
-* html #mainpic {
-  left: -7px
-}
-
 #info {
   float: left;
   max-width: 248px;
@@ -2072,14 +2030,6 @@ wbr:after {
   clear: both;
   visibility: hidden
 }
-
-.subjectwrap {
-  position: relative;
-  float: left;
-  width: 100%;
-  margin-bottom: 15px
-}
-
 #dialog {
   position: fixed;
   z-index: 103;
@@ -5717,50 +5667,6 @@ table.olt thead th {
   color: #999
 }
 
-.bigstar50 {
-  background-position: 0 0
-}
-
-.bigstar45 {
-  background-position: 0 -15px
-}
-
-.bigstar40 {
-  background-position: 0 -30px
-}
-
-.bigstar35 {
-  background-position: 0 -45px
-}
-
-.bigstar30 {
-  background-position: 0 -60px
-}
-
-.bigstar25 {
-  background-position: 0 -75px
-}
-
-.bigstar20 {
-  background-position: 0 -90px
-}
-
-.bigstar15 {
-  background-position: 0 -105px
-}
-
-.bigstar10 {
-  background-position: 0 -120px
-}
-
-.bigstar05 {
-  background-position: 0 -135px
-}
-
-.bigstar00 {
-  background-position: 0 -150px
-}
-
 #tablern .block5 {
   width: 300px;
   overflow: hidden
@@ -6020,13 +5926,6 @@ table.olt thead th {
 p.gact {
   margin: 0
 }
-
-.subjectwrap {
-  position: none;
-  float: none;
-  width: auto
-}
-
 .input_read_only {
   color: #666;
   background: #eee
@@ -10314,70 +10213,6 @@ div.comment-item {
   background-position: 0 -63px
 }
 
-.bigstar50, .bigstar45, .bigstar40, .bigstar35, .bigstar30, .bigstar25, .bigstar20, .bigstar15, .bigstar10, .bigstar05, .bigstar00 {
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-  /*background: url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) no-repeat;*/
-  /*background: -webkit-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;*/
-  /*background: -moz-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;*/
-  /*background: -o-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;*/
-  /*background: -ms-image-set(url(/f/shire/680a4bc4c384199245b080c7104da5be8ed717d3/pics/rating_icons/ic_rating_m.png) 1x, url(/f/shire/ee7f53d76c3f8ed4991bdbafdb9b2c90c0aedfef/pics/rating_icons/ic_rating_m@2x.png) 2x) no-repeat;*/
-  width: 75px;
-  height: 15px;
-  margin: 1px 0 0 0;
-  overflow: hidden
-}
-
-.bigstar50 + span.rating_num, .bigstar45 + span.rating_num, .bigstar40 + span.rating_num, .bigstar35 + span.rating_num, .bigstar30 + span.rating_num, .bigstar25 + span.rating_num, .bigstar20 + span.rating_num, .bigstar15 + span.rating_num, .bigstar10 + span.rating_num, .bigstar05 + span.rating_num, .bigstar00 + span.rating_num {
-  font-size: 16px;
-  line-height: 1
-}
-
-.bigstar50 {
-  background-position: 0 0px
-}
-
-.bigstar45 {
-  background-position: 0 -15px
-}
-
-.bigstar40 {
-  background-position: 0 -30px
-}
-
-.bigstar35 {
-  background-position: 0 -45px
-}
-
-.bigstar30 {
-  background-position: 0 -60px
-}
-
-.bigstar25 {
-  background-position: 0 -75px
-}
-
-.bigstar20 {
-  background-position: 0 -90px
-}
-
-.bigstar15 {
-  background-position: 0 -105px
-}
-
-.bigstar10 {
-  background-position: 0 -120px
-}
-
-.bigstar05 {
-  background-position: 0 -135px
-}
-
-.bigstar00 {
-  background-position: 0 -150px
-}
-
 .allstar50, .allstar45, .allstar40, .allstar35, .allstar30, .allstar25, .allstar20, .allstar15, .allstar10, .allstar05, .allstar00, .rating1-t, .rating15-t, .rating2-t, .rating25-t, .rating3-t, .rating35-t, .rating4-t, .rating45-t, .rating5-t, .rating-t, .starb ~ .stars5, .starb ~ .stars4, .starb ~ .stars3, .starb ~ .stars2, .starb ~ .stars1, .collectors .stars5, .collectors .stars4, .collectors .stars3, .collectors .stars2, .collectors .stars1 {
   display: inline-block;
   *display: inline;
@@ -10521,79 +10356,6 @@ div.comment-item {
 #interest_sect {
   overflow: hidden;
   word-wrap: break-word
-}
-
-#interest_sectl {
-  float: left;
-  width: 155px;
-  margin: 2px 0 0 0;
-  padding: 0 0 0 15px;
-  border-left: 1px solid #eaeaea;
-  color: #9b9b9b
-}
-
-#interest_sectl .rating_wrap {
-  padding-bottom: 15px;
-  font-size: 12px;
-  line-height: 14px
-}
-
-#interest_sectl .rating_wrap .rating_logo {
-  line-height: 1
-}
-
-#interest_sectl .rating_self {
-  padding: 0;
-  line-height: 2
-}
-
-#interest_sectl .rating_self:before, #interest_sectl .rating_self:after {
-  content: '';
-  display: block;
-  clear: both
-}
-
-#interest_sectl .rating_self .rating_sum {
-  clear: both
-}
-
-#interest_sectl .rating_num {
-  color: #494949;
-  padding: 0;
-  min-width: 30%;
-  font-size: 28px
-}
-
-#interest_sectl .rating_right {
-  float: left;
-  padding: 10px 0 10px 6px
-}
-
-#interest_sectl .rating_right.not_showed {
-  padding: 10px 0
-}
-
-#interest_sectl .power {
-  height: 10px;
-  float: left;
-  margin: 1px 4px;
-  background: #ffd596 none repeat scroll 0 0
-}
-
-#interest_sectl .power.color_gray {
-  background: #ccc
-}
-
-#interest_sectl .rating_per {
-  font-size: 11px
-}
-
-#interest_sectl .rating_betterthan {
-  position: relative;
-  padding: 15px 0;
-  border-top: 1px solid #eaeaea;
-  color: #9b9b9b;
-  margin: 0
 }
 
 .rating_logo_wrap .content {

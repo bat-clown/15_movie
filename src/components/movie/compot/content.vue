@@ -45,15 +45,6 @@ import right from './content/right.vue'
 
 
 <style>
-  .grid-16-8 .article{
-    float: left;
-    width: 675px;
-    padding-right: 40px;
-  }
-  .grid-16-8 .aside {
-    float: right;
-    width: 300px;
-  }
   .extra {
     clear: both;
     text-align: right;

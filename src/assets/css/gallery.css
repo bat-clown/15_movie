@@ -1,11 +1,6 @@
 #gallery-frames {
   margin-bottom: 36px
 }
-
-.gallery p, span {
-  font-size: 12px
-}
-
 .gallery-frame {
   width: 675px;
   height: 240px;
