@@ -171,6 +171,15 @@
                   <span class="role" title="导演">导演</span>
                 </div>
               </li>
+              <li class="celebrity" v-for="(item,index) in movie.casts" :key="index">
+                <a href="javascript:void(0)" :title="item.name" class="">
+                  <img class="avatar" :src="item.avatars.small" :alt="item.name">
+                </a>
+                <div class="info">
+                  <span class="name"><a href="javascript:void(0)" :title="item.name " class="name">{{item.name}} </a></span>
+                  <span class="role" title="演员">演员</span>
+                </div>
+              </li>
             </ul>
           </div>
           <!--<div id="author-wrapper" class="author-wrapper"></div>-->
