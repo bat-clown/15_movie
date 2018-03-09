@@ -204,14 +204,6 @@
     padding-bottom: 12px;
   }
 
-  #content h2 {
-    color: #111;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eaeaea;
-    margin-bottom: 18px;
-    line-height: 21px;
-  }
-
   .hotMovie {
     float: left;
     font-size: 16px;

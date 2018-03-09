@@ -17,16 +17,19 @@ html h2 {
 html h1 {
   font-size: 26px
 }
+
 h2 {
   font: 15px Arial, Helvetica, sans-serif;
   color: #072;
   margin: 0 0 12px 0;
   line-height: 150%;
 }
+
 label {
   font-family: Tahoma;
   vertical-align: middle;
 }
+
 @media (max-width: 1024px) {
   #wrapper {
     width: 1000px
@@ -35,6 +38,7 @@ label {
   body {
     width: 1024px
   }
+
   [id^=dale_] {
     max-width: 1000px
   }
@@ -96,4 +100,56 @@ label {
 
 .poster-col3 .prop {
   color: #949494
+}
+
+#content h2 {
+  color: #111;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 18px;
+  line-height: 21px;
+}
+
+.bigstar50 {
+  background-position: 0 0
+}
+
+.bigstar45 {
+  background-position: 0 -15px
+}
+
+.bigstar40 {
+  background-position: 0 -30px
+}
+
+.bigstar35 {
+  background-position: 0 -45px
+}
+
+.bigstar30 {
+  background-position: 0 -60px
+}
+
+.bigstar25 {
+  background-position: 0 -75px
+}
+
+.bigstar20 {
+  background-position: 0 -90px
+}
+
+.bigstar15 {
+  background-position: 0 -105px
+}
+
+.bigstar10 {
+  background-position: 0 -120px
+}
+
+.bigstar05 {
+  background-position: 0 -135px
+}
+
+.bigstar00 {
+  background-position: 0 -150px
 }

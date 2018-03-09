@@ -29,143 +29,150 @@
                       <a href="javascript:void(0)">{{item}}</a>
                       {{index < (movie.writers.length-1) ? '/' : ''}}
                     </span>
-                    <span>
-                      <a href="javascript:void(0)" v-if="!movie.writers">{{noData}}</a>
+                    <span v-if="!movie.writers">
+                      <a href="javascript:void(0)">{{noData}}</a>
                     </span>
                   </span><br>
                   <span class="actor"><span class="pl">主演</span>:
                     <span class="attrs">
-                      <span>
-                        <a href="javascript:void(0)" rel="v:starring">{{movie.casts[0].name}}</a> /
+                      <span v-for="(item,index) in movie.casts" :key="index">
+                        <a href="javascript:void(0)">{{item.name}}</a>
+                        {{index < (movie.casts.length-1) ? '/' : ''}}
                       </span>
-                      <span>
-                        <a href="javascript:void(0)" rel="v:starring">{{movie.casts[1].name}}</a> /
-                      </span>
-                      <span>
-                        <a href="javascript:void(0)" rel="v:starring">{{movie.casts[2].name}}</a> /
-                      </span>
-                      <span>
-                        <a href="javascript:void(0)" rel="v:starring">{{movie.casts[3].name}}</a> /
-                      </span>
-                      <a href="javascript:;" class="more-actor" title="更多主演">更多...</a>
+                      <a href="javascript:;" title="更多主演" v-if="isShow" @click="he">更多...</a>
+                      <a href="javascript:void(0)" v-else>{{noData}}</a>
                     </span>
                   </span>
                   <br>
-                  <!--<span class="pl">类型:</span> <span>movie.genres[0]</span> / <span>movie.genres[1]</span> / <span>movie.genres[2]</span><br>-->
 
-                  <!--<span class="pl">制片国家/地区:</span> {{movie.countries[0]}} / {{movie.countries[1]}}<br>-->
-                  <!--<span class="pl">语言:</span> {{movie.language}}<br>-->
-                  <!--<span class="pl">上映日期:</span> <span :content="movie.mainland_pubdate"></span><br>-->
-                  <!--<span class="pl">片长:</span> <span :content="movie.durations"></span><br>-->
-                  <!--<span class="pl">又名:</span> {{movie.aka[0]}} / {{movie.aka[1]}}<br>-->
+                  <span class="pl">类型:
+                    <span v-for="(item,index) in movie.genres" :key="index">
+                      {{item}} {{index < (movie.genres.length-1) ? '/' : ''}}
+                    </span>
+                  </span>
+                  <br>
+                  <span class="pl">制片国家/地区:
+                    <span v-for="(item_c,index_c) in movie.countries" :key="index_c">
+                      {{item_c}} {{index_c < (movie.countries.length-1) ? '/' : ''}}
+                    </span>
+                  </span>
+                  <br>
+                  <span class="pl">语言:</span> {{!!(movie.languages)?movie.languages:noData}}<br>
+                  <span class="pl">上映日期:
+                    <span v-for="(item,index) in movie.mainland_pubdate" :key="index">{{item}} {{index_c < (movie.mainland_pubdate.length-1) ? '/' : ''}} </span>
+                    <span v-if="!(movie.mainland_pubdate)">{{noData}}</span>
+                  </span>
+                  <br>
+                  <span class="pl">片长:</span> <span>{{movie.durations ? movie.durations : noData}}</span><br>
+                  <span class="pl">原名: </span>{{movie.original_title}}<br>
+                  <span class="pl">又名:
+                    <span v-for="(item,index) in movie.aka" :key="index">
+                      {{item}} {{index < (movie.aka.length-1) ? '/' : ''}}
+                    </span>
+                  </span><br>
                 </div>
-
-
               </div>
 
-              <!--<div id="interest_sectl">-->
-                <!--<div class="rating_wrap clearbox">-->
-                  <!--<div class="clearfix">-->
-                    <!--<div class="rating_logo ll">-->
-                      <!--豆瓣评分-->
-                    <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="rating_self clearfix">-->
-                    <!--<strong class="ll rating_num">{{movie.rating.average}}</strong>-->
-                    <!--<span :content="movie.rating.max"></span>-->
-                    <!--<div class="rating_right ">-->
-                      <!--<div class="ll bigstar bigstar45"></div>-->
-                      <!--<div class="rating_sum">-->
-                        <!--<a href="collections" class="rating_people"><span>{{movie.ratings_count}}</span>人评价</a>-->
-                      <!--</div>-->
-                    <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="ratings-on-weight">-->
-                    <!--<div class="item">-->
-                      <!--<span class="stars5 starstop" title="力荐">-->
-                          <!--5星-->
-                      <!--</span>-->
-                      <!--<div class="power" style="width:64px"></div>-->
-                      <!--<span class="rating_per">42.8%</span>-->
-                      <!--<br>-->
-                    <!--</div>-->
-                    <!--<div class="item">-->
-                      <!--<span class="stars4 starstop" title="推荐">-->
-                          <!--4星-->
-                      <!--</span>-->
-                      <!--<div class="power" style="width:61px"></div>-->
-                      <!--<span class="rating_per">40.9%</span>-->
-                      <!--<br>-->
-                    <!--</div>-->
-                    <!--<div class="item">-->
-                      <!--<span class="stars3 starstop" title="还行">-->
-                          <!--3星-->
-                      <!--</span>-->
-                      <!--<div class="power" style="width:20px"></div>-->
-                      <!--<span class="rating_per">13.6%</span>-->
-                      <!--<br>-->
-                    <!--</div>-->
-                    <!--<div class="item">-->
-                      <!--<span class="stars2 starstop" title="较差">-->
-                          <!--2星-->
-                      <!--</span>-->
-                      <!--<div class="power" style="width:2px"></div>-->
-                      <!--<span class="rating_per">1.9%</span>-->
-                      <!--<br>-->
-                    <!--</div>-->
-                    <!--<div class="item">-->
-                      <!--<span class="stars1 starstop" title="很差">-->
-                          <!--1星-->
-                      <!--</span>-->
-                      <!--<div class="power" style="width:1px"></div>-->
-                      <!--<span class="rating_per">0.8%</span>-->
-                      <!--<br>-->
-                    <!--</div>-->
-                  <!--</div>-->
-
-                <!--</div>-->
-                <!--<div class="rating_betterthan">-->
-                  <!--"好于"<a href="javascript:void(0)"></a><br>-->
-                <!--</div>-->
-              <!--</div>-->
+              <div id="interest_sectl">
+                <div class="rating_wrap clearbox">
+                  <div class="clearfix">
+                    <div class="rating_logo ll">
+                      豆瓣评分
+                    </div>
+                  </div>
+                  <div class="rating_self clearfix">
+                    <strong class="ll rating_num">{{movie.rating.average}}</strong>
+                    <span :content="movie.rating.max"></span>
+                    <div class="rating_right ">
+                      <div class="ll bigstar" :class="'bigstar' + movie.rating.stars"></div>
+                      <div class="rating_sum">
+                        <a href="javascript:void(0)" class="rating_people"><span>{{movie.ratings_count}}</span>人评价</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ratings-on-weight">
+                    <div class="item">
+                      <span class="stars5 starstop" title="力荐">
+                          5星
+                      </span>
+                      <div class="power" style="width:64px"></div>
+                      <span class="rating_per">42.8%</span>
+                      <br>
+                    </div>
+                    <div class="item">
+                      <span class="stars4 starstop" title="推荐">
+                          4星
+                      </span>
+                      <div class="power" style="width:61px"></div>
+                      <span class="rating_per">40.9%</span>
+                      <br>
+                    </div>
+                    <div class="item">
+                      <span class="stars3 starstop" title="还行">
+                          3星
+                      </span>
+                      <div class="power" style="width:20px"></div>
+                      <span class="rating_per">13.6%</span>
+                      <br>
+                    </div>
+                    <div class="item">
+                      <span class="stars2 starstop" title="较差">
+                          2星
+                      </span>
+                      <div class="power" style="width:2px"></div>
+                      <span class="rating_per">1.9%</span>
+                      <br>
+                    </div>
+                    <div class="item">
+                      <span class="stars1 starstop" title="很差">
+                          1星
+                      </span>
+                      <div class="power" style="width:1px"></div>
+                      <span class="rating_per">0.8%</span>
+                      <br>
+                    </div>
+                  </div>
+                </div>
+                <div class="rating_betterthan">
+                  "好于"<a href="javascript:void(0)"></a><br>
+                </div>
+              </div>
             </div>
           </div>
-          <!--<div class="related-info" style="margin-bottom: -10px;">-->
-            <!--<h2>-->
-              <!--<i class="">黑豹的剧情简介</i>-->
-              <!--· · · · · ·-->
-            <!--</h2>-->
-            <!--<div class="indent">-->
-              <!--<span class="">-->
-                <!--在漫威影业的影片《黑豹》中，特查拉在其父亲——前瓦坎达国王去世之后，回到了这个科技先进但与世隔绝的非洲国家，继任成为新一任“黑豹”及国王。当旧敌重现时，作为“黑豹”及国王的特查拉身陷两难境地，眼看着瓦坎达及全世界陷于危难之中。面对背叛与危险，这位年轻的国王必须联合同盟， 释放“黑豹”全部力量，奋力捍卫他的人民和国土。-->
-              <!--</span>-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div id="celebrities" class="celebrities related-celebrities">-->
-            <!--<h2>-->
-              <!--<i class="">黑豹的影人</i>-->
-              <!--· · · · · ·-->
-              <!--<span class="pl">-->
-            <!--(-->
-                <!--<a href="/subject/6390825/celebrities">全部 25</a>-->
-            <!--) </span>-->
-            <!--</h2>-->
+          <div class="related-info">
+            <h2>
+              <i class="">{{movie.title}}的剧情简介</i>
+              · · · · · ·
+            </h2>
+            <div class="indent">
+              <p class="text_indent">
+                {{movie.summary}}
+              </p>
+            </div>
+          </div>
+          <div id="celebrities" class="celebrities related-celebrities">
+            <h2>
+              <i class="">{{movie.title}}的影人</i>
+              · · · · · ·
+              <span class="pl">
+            (
+                <a href="javascript:void(0)">全部 25</a>
+            ) </span>
+            </h2>
 
-            <!--<ul class="celebrities-list from-subject __oneline">-->
+            <ul class="celebrities-list from-subject __oneline">
 
-              <!--<li class="celebrity">-->
-                <!--<a href="https://movie.douban.com/celebrity/1326531/" title="瑞恩·库格勒 " class="">-->
-                  <!--<div class="avatar"-->
-                       <!--style="background-image: url(https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/pPjZDSsF679kcel_avatar_uploaded1359524956.71.webp)">-->
-                  <!--</div>-->
-                <!--</a>-->
-                <!--<div class="info">-->
-                  <!--<span class="name"><a href="https://movie.douban.com/celebrity/1326531/" title="瑞恩·库格勒 " class="name">瑞恩·库格勒 </a></span>-->
-                  <!--<span class="role" title="导演">导演</span>-->
-                <!--</div>-->
-              <!--</li>-->
-            <!--</ul>-->
-          <!--</div>-->
+              <li class="celebrity" v-for="(item,index) in movie.directors" :key="index">
+                <a href="javascript:void(0)" :title="item.name" class="">
+                  <img class="avatar" :src="item.avatars.big" :alt="item.name">
+                </a>
+                <div class="info">
+                  <span class="name"><a href="javascript:void(0)" :title="item.name " class="name">{{item.name}} </a></span>
+                  <span class="role" title="导演">导演</span>
+                </div>
+              </li>
+            </ul>
+          </div>
           <!--<div id="author-wrapper" class="author-wrapper"></div>-->
           <!--<div id="related-pic" class="related-pic">-->
 
@@ -953,7 +960,8 @@
       data(){
           return {
               movie:{},
-              noData:'豆瓣不给我'
+              noData:'豆瓣不给我',
+              isShow:true
           }
       },
       created(){
@@ -963,7 +971,12 @@
         },function(res){
           this.movie = res;
         });
-      }
+      },
+    methods:{
+          he(){
+              this.isShow = !this.isShow;
+          }
+    }
   }
 </script>
 
@@ -971,11 +984,6 @@
   h1 .year {
     color: #888;
   }
-
-  .indent {
-    margin-bottom: 30px;
-  }
-
   .subjectwrap {
     position: relative;
     float: none;
@@ -1011,6 +1019,10 @@
     font: 12px Arial, Helvetica, sans-serif;
     line-height: 150%;
     color: #666666;
+  }
+
+  .pl span{
+    color: #111;
   }
 
   #interest_sectl {
@@ -1068,10 +1080,6 @@
     overflow: hidden;
   }
 
-  .rating_right .bigstar45 {
-    background-position: 0 -15px;
-  }
-
   .starstop {
     float: left;
     margin-right: 5px;
@@ -1095,8 +1103,37 @@
     color: #9b9b9b;
     margin: 0;
   }
-
+  #content .related-info h2, #content .celebrities h2{
+    color: #072;
+    border:none;
+    padding:0;
+    margin-bottom: 12px;
+  }
+  .related-info{
+    margin-bottom: 40px;
+  }
   .related-info h2 {
     margin: 24px 0 12px 0;
+  }
+  #content .text_indent{
+    text-indent: 2em;
+  }
+  #celebrities{
+    margin-top: 30px;
+  }
+  #celebrities .celebrities-list.from-subject li:first-child .avatar {
+    margin-left: 0;
+  }
+  #celebrities .celebrities-list .avatar {
+    margin: 0 auto;
+    height: 133px;
+    background-repeat: no-repeat;
+    background-size: 95px 133px;
+    background-position: center;
+  }
+  #celebrities * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
 </style>
