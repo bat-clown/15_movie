@@ -20,7 +20,7 @@ export default new Router({
       component: index,
       children:[
         {path:'/',component:content},
-        {path:'/subjects/26861685',component:pag_26861685}
+        {path:'/subjects/:id',component:pag_26861685}
       ]
     },
     {

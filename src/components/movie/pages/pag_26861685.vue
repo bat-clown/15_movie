@@ -161,17 +161,17 @@
             </h2>
 
             <ul class="celebrities-list from-subject __oneline">
-
-              <li class="celebrity" v-for="(item,index) in movie.directors" :key="index">
+              <li class="celebrity" v-for="(item,index) in movie.directors" :key="item.name">
                 <a href="javascript:void(0)" :title="item.name" class="">
-                  <img class="avatar" :src="item.avatars.big" :alt="item.name">
+                  <img class="avatar" :src="item.avatars.small" :alt="item.name">
                 </a>
                 <div class="info">
                   <span class="name"><a href="javascript:void(0)" :title="item.name " class="name">{{item.name}} </a></span>
                   <span class="role" title="导演">导演</span>
                 </div>
               </li>
-              <li class="celebrity" v-for="(item,index) in movie.casts" :key="index">
+
+              <li class="celebrity" v-for="(item,index) in movie.casts" :key="item.name">
                 <a href="javascript:void(0)" :title="item.name" class="">
                   <img class="avatar" :src="item.avatars.small" :alt="item.name">
                 </a>
@@ -182,145 +182,125 @@
               </li>
             </ul>
           </div>
-          <!--<div id="author-wrapper" class="author-wrapper"></div>-->
-          <!--<div id="related-pic" class="related-pic">-->
 
 
-            <!--<h2>-->
-              <!--<i class="">黑豹的视频和图片</i>-->
-              <!--· · · · · ·-->
-              <!--<span class="pl">-->
-            <!--(-->
-                <!--<a href="https://movie.douban.com/subject/6390825/trailer#trailer">预告片19</a>&nbsp;|&nbsp;<a-->
-                <!--href="https://movie.douban.com/subject/6390825/all_photos">图片518</a>&nbsp;|&nbsp;<a-->
-                <!--href="https://movie.douban.com/subject/6390825/mupload">添加图片</a>-->
-            <!--) </span>-->
-            <!--</h2>-->
+          <div id="author-wrapper" class="author-wrapper"></div>
 
 
-            <!--<ul class="related-pic-bd">-->
-              <!--<li>-->
-                <!--<a class="related-pic-video" href="https://movie.douban.com/trailer/226827/#content">-->
-                  <!--<span></span>-->
-                  <!--<img src="https://img3.doubanio.com/img/trailer/medium/2515715320.jpg?1520505787" alt="预告片">-->
-                <!--</a>-->
-              <!--</li>-->
-              <!--<li>-->
-                <!--<a href="https://movie.douban.com/photos/photo/2493318100/"><img-->
-                  <!--src="https://img3.doubanio.com/view/photo/sqxs/public/p2493318100.webp" alt="图片"></a>-->
-              <!--</li>-->
-            <!--</ul>-->
-          <!--</div>-->
-          <!--<div class="mod">-->
-            <!--<div class="hd">-->
+          <div id="related-pic" class="related-pic">
 
-              <!--<h2>-->
-                <!--<i class="">黑豹的获奖情况</i>-->
-                <!--· · · · · ·-->
-                <!--<span class="pl">-->
-            <!--(-->
-                <!--<a href="https://movie.douban.com/subject/6390825/awards/">全部</a>-->
-            <!--) </span>-->
-              <!--</h2>-->
+            <h2>
+              <i class="">黑豹的视频和图片</i>
+              · · · · · ·
+            </h2>
 
-            <!--</div>-->
-
-            <!--<ul class="award">-->
-              <!--<li>-->
-                <!--<a href="https://movie.douban.com/awards/doubanfilm_annual/4/">第4届豆瓣电影年度榜单</a>-->
-              <!--</li>-->
-              <!--<li>最值得期待的外语电影(提名)</li>-->
-              <!--<li></li>-->
-            <!--</ul>-->
-          <!--</div>-->
-          <!--<div id="comments-section">-->
-            <!--<div class="mod-hd">-->
-
-              <!--<a class="comment_btn j a_collect_btn" name="cbtn-6390825" href="javascript:;" rel="nofollow">-->
-                <!--<span>我要写短评</span>-->
-              <!--</a>-->
+            <ul class="related-pic-bd" v-if="false">
+              <li>
+                <a class="related-pic-video" href="https://movie.douban.com/trailer/226827/#content">
+                  <span></span>
+                  <img src="https://img3.doubanio.com/img/trailer/medium/2515715320.jpg?1520505787" alt="预告片">
+                </a>
+              </li>
+              <li>
+                <a href="https://movie.douban.com/photos/photo/2493318100/"><img
+                  src="https://img3.doubanio.com/view/photo/sqxs/public/p2493318100.webp" alt="图片"></a>
+              </li>
+            </ul>
+            <p v-else>{{noData}}</p>
+          </div>
 
 
-              <!--<h2>-->
-                <!--<i class="">黑豹的短评</i>-->
-                <!--· · · · · ·-->
-                <!--<span class="pl">-->
-            <!--(-->
-                <!--<a href="https://movie.douban.com/subject/6390825/comments?status=P">全部 4488 条</a>-->
-            <!--) </span>-->
-              <!--</h2>-->
+          <div id="comments-section" v-if=false>
+            <div class="mod-hd">
 
-            <!--</div>-->
-            <!--<div class="mod-bd">-->
-
-              <!--<div class="tab-hd">-->
-                <!--<a id="hot-comments-tab" href="comments" data-id="hot" class="on">热门</a>&nbsp;/&nbsp;-->
-                <!--<a id="new-comments-tab" href="comments?sort=time" data-id="new">最新</a>&nbsp;/&nbsp;-->
-                <!--<a id="following-comments-tab" href="follows_comments" data-id="following">好友</a>-->
-              <!--</div>-->
-
-              <!--<div class="tab-bd">-->
-                <!--<div id="hot-comments" class="tab">-->
+              <a class="comment_btn j a_collect_btn" name="cbtn-6390825" href="javascript:;" rel="nofollow">
+                <span>我要写短评</span>
+              </a>
 
 
-                  <!--<div class="comment-item" data-cid="1325255089">-->
+              <h2>
+                <i class="">黑豹的短评</i>
+                · · · · · ·
+                <span class="pl">
+            (
+                <a href="https://movie.douban.com/subject/6390825/comments?status=P">全部 4488 条</a>
+            ) </span>
+              </h2>
+
+            </div>
+            <div class="mod-bd">
+
+              <div class="tab-hd">
+                <a id="hot-comments-tab" href="comments" data-id="hot" class="on">热门</a>&nbsp;/&nbsp;
+                <a id="new-comments-tab" href="comments?sort=time" data-id="new">最新</a>&nbsp;/&nbsp;
+                <a id="following-comments-tab" href="follows_comments" data-id="following">好友</a>
+              </div>
+
+              <div class="tab-bd">
+                <div id="hot-comments" class="tab">
 
 
-                    <!--<div class="comment">-->
-                      <!--<h3>-->
-            <!--<span class="comment-vote">-->
-                <!--<span class="votes">259</span>-->
-                <!--<input value="1325255089" type="hidden">-->
-                <!--<a href="javascript:;" class="j a_vote_comment" onclick="">有用</a>-->
-            <!--</span>-->
-                        <!--<span class="comment-info">-->
-                <!--<a href="https://www.douban.com/people/147398272/" class="">蜜饯大王橄榄梅</a>-->
-                    <!--<span>看过</span>-->
-                    <!--<span class="allstar50 rating" title="力荐"></span>-->
-                <!--<span class="comment-time " title="2018-02-17 04:40:15">-->
-                    <!--2018-02-17-->
-                <!--</span>-->
-            <!--</span>-->
-                      <!--</h3>-->
-                      <!--<p class="">-->
-                        <!--怒打五星。个人觉得四星，有笑点，女性角色都很棒，strong and powerful。但是豆瓣上傻逼也忒多了点吧，黑人演员多一个个就高潮迭起除了政治正确还他妈知道其它词吗？而且就你们这帮人也配谈政治正确？-->
-                      <!--</p>-->
-                      <!--<a class="js-irrelevant irrelevant" href="javascript:;">这条短评跟影片无关</a>-->
-                    <!--</div>-->
-
-                  <!--</div>-->
+                  <div class="comment-item" data-cid="1325255089">
 
 
-                  <!--&gt; <a href="comments?sort=new_score&amp;status=P">更多短评4488条</a>-->
-                <!--</div>-->
-                <!--<div id="new-comments" class="tab">-->
-                  <!--<div id="normal">-->
-                  <!--</div>-->
-                  <!--<div class="fold-hd hide">-->
-                    <!--<a class="qa" href="/help/opinion#t2-q0" target="_blank">为什么被折叠？</a>-->
-                    <!--<a class="btn-unfold" href="#">有一些短评被折叠了</a>-->
-                    <!--<div class="qa-tip">-->
-                      <!--评论被折叠，是因为发布这条评论的帐号行为异常。评论仍可以被展开阅读，对发布人的账号不造成其他影响。如果认为有问题，可以<a-->
-                      <!--href="https://help.douban.com/help/ask?category=movie">联系</a>豆瓣电影。-->
-                    <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="fold-bd">-->
-                  <!--</div>-->
-                  <!--<span id="total-num"></span>-->
-                <!--</div>-->
-                <!--<div id="following-comments" class="tab">-->
+                    <div class="comment">
+                      <h3>
+            <span class="comment-vote">
+                <span class="votes">259</span>
+                <input value="1325255089" type="hidden">
+                <a href="javascript:;" class="j a_vote_comment" onclick="">有用</a>
+            </span>
+                        <span class="comment-info">
+                <a href="https://www.douban.com/people/147398272/" class="">蜜饯大王橄榄梅</a>
+                    <span>看过</span>
+                    <span class="allstar50 rating" title="力荐"></span>
+                <span class="comment-time " title="2018-02-17 04:40:15">
+                    2018-02-17
+                </span>
+            </span>
+                      </h3>
+                      <p class="">
+                        怒打五星。个人觉得四星，有笑点，女性角色都很棒，strong and powerful。但是豆瓣上傻逼也忒多了点吧，黑人演员多一个个就高潮迭起除了政治正确还他妈知道其它词吗？而且就你们这帮人也配谈政治正确？
+                      </p>
+                      <a class="js-irrelevant irrelevant" href="javascript:;">这条短评跟影片无关</a>
+                    </div>
+
+                  </div>
 
 
-                  <!--<div class="comment-item">-->
-                    <!--你关注的人还没写过短评-->
-                  <!--</div>-->
+                  > <a href="comments?sort=new_score&amp;status=P">更多短评4488条</a>
+                </div>
+                <div id="new-comments" class="tab">
+                  <div id="normal">
+                  </div>
+                  <div class="fold-hd hide">
+                    <a class="qa" href="/help/opinion#t2-q0" target="_blank">为什么被折叠？</a>
+                    <a class="btn-unfold" href="#">有一些短评被折叠了</a>
+                    <div class="qa-tip">
+                      评论被折叠，是因为发布这条评论的帐号行为异常。评论仍可以被展开阅读，对发布人的账号不造成其他影响。如果认为有问题，可以<a
+                      href="https://help.douban.com/help/ask?category=movie">联系</a>豆瓣电影。
+                    </div>
+                  </div>
+                  <div class="fold-bd">
+                  </div>
+                  <span id="total-num"></span>
+                </div>
+                <div id="following-comments" class="tab">
 
-                <!--</div>-->
-              <!--</div>-->
+
+                  <div class="comment-item">
+                    你关注的人还没写过短评
+                  </div>
+
+                </div>
+              </div>
 
 
-            <!--</div>-->
-          <!--</div>-->
+            </div>
+          </div>
+          <div v-else>
+            {{noData}}
+          </div>
           <!--<section class="reviews mod movie-content">-->
             <!--<header>-->
               <!--<a href="new_review" rel="nofollow" class="create-review comment_btn" data-isverify="True"-->
@@ -970,11 +950,13 @@
           return {
               movie:{},
               noData:'豆瓣不给我',
-              isShow:true
+              isShow:true,
+              num:''
           }
       },
       created(){
-        this.$http.jsonp("https://api.douban.com/v2/movie/subject/26861685").then(function(res){
+        this.num = this.$route.params.id;
+        this.$http.jsonp("https://api.douban.com/v2/movie/subject/"+this.num).then(function(res){
           this.movie = res.body;
           console.log(this.list);
         },function(res){
@@ -1130,19 +1112,45 @@
   #celebrities{
     margin-top: 30px;
   }
-  #celebrities .celebrities-list.from-subject li:first-child .avatar {
-    margin-left: 0;
+  #celebrities .celebrities-list{
+    display: flex;
+    justify-content: space-between;
   }
-  #celebrities .celebrities-list .avatar {
-    margin: 0 auto;
-    height: 133px;
-    background-repeat: no-repeat;
-    background-size: 95px 133px;
-    background-position: center;
+  #celebrities .celebrities-list li {
+    display: inline-block;
+    vertical-align: top;
+    width: 95px;
+    font-size: 13px;
   }
   #celebrities * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+  }
+  #celebrities .celebrities-list.from-subject .avatar {
+    margin-left: 0;
+  }
+  #celebrities .celebrities-list .avatar {
+    margin: 0 auto;
+    height: 133px;
+  }
+  #celebrities .celebrities-list li .info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 6px auto 0;
+    display: block;
+    text-align: center;
+  }
+  #celebrities .celebrities-list .info span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+    width: 95px;
+    color: #9b9b9b;
+  }
+  .author-wrapper {
+    margin-bottom: 40px;
   }
 </style>

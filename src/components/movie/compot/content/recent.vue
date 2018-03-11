@@ -114,7 +114,7 @@
         template: `
               <a class="item" target="_blank" href="javascript:void(0)">
                 <div class="cover-wp">
-                  <img :src="item.images.small" :alt="item.title">
+                  <img :src="item.images.small" :alt="item.title" @click="handle">
                 </div>
                 <p>{{item.title}}<strong>{{rate}}</strong></p>
               </a>`,
@@ -122,6 +122,11 @@
         computed:{
             rate(){
               return this.item.rating.average === 0 ? '' : this.item.rating.average;
+            }
+        },
+        methods:{
+            handle(){
+              this.$router.push('/subjects/'+this.item.id)
             }
         }
       },
