@@ -8,8 +8,8 @@
 
 
 <script>
-  import topBar from './compot/topBar.vue'
-  import headBar from './compot/headBar.vue'
+  import topBar from '../../topBar.vue'
+  import headBar from '../../headBar.vue'
 
 
 

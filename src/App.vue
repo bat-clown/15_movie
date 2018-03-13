@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <top-bar></top-bar>
+    <head-bar></head-bar>
+    <keep-alive exclude="movieDetail">
       <!--<img src="./assets/logo.png">-->
       <router-view></router-view>
     </keep-alive>
@@ -9,7 +11,14 @@
 
 <script>
 export default {
-  name: 'app'
+  components:{
+      'topBar':(resolve)=>{
+          require(['./topBar'],resolve)
+      },
+      'headBar':(resolve)=>{
+          require(['./headBar'],resolve)
+      }
+  }
 }
 </script>
 
