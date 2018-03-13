@@ -12,7 +12,7 @@ import send from '@/components/send'
 Vue.use(Router);
 Vue.use(Resource);
 
-export default new Router({
+export default {
   routes: [
     {
       path: '/',
@@ -22,14 +22,6 @@ export default new Router({
         {path:'/',component:content},
         {path:'/subjects/:id',component:pag_26861685}
       ]
-    },
-    {
-      path:'/subject/:id',
-      component:pay
-    },
-    {
-      path:'/send',
-      component:send
     }
   ]
-})
+}
