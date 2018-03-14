@@ -4,18 +4,12 @@
  */
 export default {
   '/': {
-    path: '/',
-    name: 'app'
-  },
-  '/content': {
-    path: '/',
+    path: 'components/movie/content',
     name: 'content'
   },
   '/movieDetail': {
-    path: '/subjects/:id',
+    path: 'components/movie/movieDetail',
     name: 'movieDetail'
   }
-
-
 }
 

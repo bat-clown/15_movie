@@ -6,6 +6,7 @@
       <!--<img src="./assets/logo.png">-->
       <router-view></router-view>
     </keep-alive>
+    <footer-bar></footer-bar>
   </div>
 </template>
 
@@ -17,6 +18,9 @@ export default {
       },
       'headBar':(resolve)=>{
           require(['./headBar'],resolve)
+      },
+      'footerBar': (resolve) => {
+          require(['./footer'],resolve)
       }
   }
 }

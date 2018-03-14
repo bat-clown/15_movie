@@ -7,7 +7,7 @@
           <form action="get" class="gaia_frm" autocomplete="off">
             <div class="tags">
               <div class="tag-list">
-                <label-parent v-for="(item,index) in labelList" :item="item" :key="index" :index="index" @haha="change"></label-parent>
+                <label-parent v-for="(item,index) in labelList" :item="item" :index="index" :key="index" @click="change(index)"></label-parent>
               </div>
             </div>
           </form>
@@ -20,7 +20,7 @@
         <div class="slide-container" style="height: 426px;">
           <div class="slide-wrapper" :style="{width:width+'px',left:left+'px'}">
             <div class="slide-page" style="width: 700px;" v-for="(list,index) in num" :key="index">
-              <a-parent v-for="(item,index) in list" :key="index" :item="item"></a-parent>
+              <a-parent v-for="(item,index) in upComing.subjects" :key="index" :item="item"></a-parent>
             </div>
           </div>
 
@@ -42,31 +42,18 @@
   export default{
     data(){
       return {
-        movieList: [],
         labelList: ['即将上映', 'top250'],
         left: 0,
-        index:0,
-        url:['https://api.douban.com/v2/movie/coming_soon',
-             'https://api.douban.com/v2/movie/top250']
+        index:0
       }
     },
     computed: {
       num: function () {
-        let a = 10;
-        let b = this.movieList;
-        let c = b.length;
-        let d = [];
-        while (c >= 10) {
-          d.push(b.splice(0, 10));
-          c = b.length;
-        }
-        if (c > 0) {
-          d.push(b);
-        }
-        return d;
+        let a = this.$store.getters.upComing.subjects.length;
+        return Math.ceil(a/10)
       },
       width: function () {
-        return this.num.length * 700;
+        return this.num * 700;
       }
     },
     methods: {
@@ -76,7 +63,7 @@
           this.left = 0
         }
         this.index++;
-        if (this.index > this.num.length - 1) {
+        if (this.index > this.num - 1) {
           this.index = 0;
         }
       },
@@ -94,21 +81,22 @@
         this.index = msg;
         this.left = -700 * msg;
       },
-      change(msg){
-        this.$http.jsonp(this.url[msg]).then(function (res) {
-          this.movieList = JSON.parse(res.bodyText).subjects;
-        }, function (res) {
-          this.movieList = res;
-        });
+      change (index) {
+          if (index !== this.$store.getters.num) {
+            this.$store.commit('changeNum', {num: index})
+            if (this.$store.getters.num === 0) {
+              this.$store.dispatch('getTop250')
+            }else{
+              this.$store.dispatch('getUpComing')
+            }
+          }
       }
     },
+
     mounted(){
-      this.$http.jsonp(this.url[0]).then(function (res) {
-        this.movieList = JSON.parse(res.bodyText).subjects;
-      }, function (res) {
-        this.movieList = res;
-      });
+      this.$store.dispatch('getUpComing')
     },
+
     components: {
       'a-parent': {
         template: `
@@ -156,31 +144,27 @@
       'label-parent': {
         template: `<label :class="{activate:isActive}">
                       {{item}}
-                      <input type="radio" name="lover" :value="item" v-model="in_value" @click="update">
+                      <input type="radio" name="choice" :value="item" v-model="in_value">
                    </label>`,
-        props: ['item', 'index'],
+        props: ['item','index'],
         data(){
           return {
-            in_value:'即将上映',
-            isActive:false
+            in_value:''
           }
         },
         methods:{
-            update(){
-                vm.$emit('hehe');
-                this.$emit('haha',this.index);
-                this.$nextTick(function () {
-                  this.isActive = this.in_value === this.item;
-                })
-            },
+//            change(index){
+//                if (index === 0) {
+//
+//                }
+//                this.$nextTick(function () {
+//                  this.isActive = this.in_value === this.item;
+//                })
+//            },
         },
-        created(){
-            let _self = this;
-            vm.$on('hehe',function () {
-                _self.isActive = false
-            });
-            if(this.index === 0){
-                this.isActive = true;
+        computed:{
+            isActive(){
+              return this.$store.getters.num === this.index
             }
         }
       }
@@ -334,7 +318,7 @@
     height: 18px;
     margin-right: 5px;
     cursor: pointer;
-    background: url("../../../../../static/imgs/slide.png") no-repeat;
+    background: url("../../../../static/imgs/slide.png") no-repeat;
   }
 
   .gaia .slider .slide-ctrl {

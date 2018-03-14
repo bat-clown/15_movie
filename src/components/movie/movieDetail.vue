@@ -1062,7 +1062,7 @@
   }
 
   .bigstar45 {
-    background: url("../../../../static/imgs/big_star.png") no-repeat;
+    background: url("../../../static/imgs/big_star.png") no-repeat;
     display: inline-block;
     zoom: 1;
     width: 75px;

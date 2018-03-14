@@ -1,27 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Resource from 'vue-resource'
-import Hello from '@/components/Hello'
-import index from '@/components/movie/index'
-import content from '@/components/movie/compot/content'
-import pag_26861685 from '@/components/movie/pages/pag_26861685'
-import pay from '@/components/pay'
-import send from '@/components/send'
+import routerPath from './routerPath'
+import content from '@/components/movie/content'
+import movieDetail from '@/components/movie/movieDetail'
 
 
 Vue.use(Router);
-Vue.use(Resource);
 
-export default {
-  routes: [
-    {
-      path: '/',
-      name: 'index',
-      component: index,
-      children:[
-        {path:'/',component:content},
-        {path:'/subjects/:id',component:pag_26861685}
-      ]
-    }
-  ]
+function lazyLoad(path){
+  return resolve => require(['@/' + path + '.vue'],resolve)
 }
+
+let routers = [];
+for (let key in routerPath){
+  if (routerPath.hasOwnProperty(key)){
+    let item = {}
+    item.name = routerPath[key].name
+    item.path = key
+    item.component = lazyLoad(routerPath[key].path)
+    if (!!routerPath[key].redirect){
+      item.redirect = routerPath[key].redirect
+    }
+    routers.push(item)
+  }
+}
+
+
+
+export default new Router({
+  mode:'history',
+  routes:routers
+})
