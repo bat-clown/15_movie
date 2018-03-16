@@ -11,7 +11,7 @@
     </div>
     <div class="screening-bd">
       <ul class="ui-slide-content" :style="{left:left+'px'}">
-        <li-parent  v-for="(item,index) in movingList.subjects" :key="index" :index="index" :item="item"></li-parent>
+        <li-parent  v-for="(item,index) in movingList" :key="index" :index="index" :item="item"></li-parent>
       </ul>
     </div>
   </div>
@@ -42,13 +42,13 @@
     },
       computed:{
         totalNum:function () {
-          return Math.ceil(this.movingList.subjects.length/5);
+          return Math.ceil(this.movingList.length/5);
         },
         currentNum:function () {
           return Math.abs(this.left/700)+1;
         },
         movingList:function () {
-          return this.$store.getters.movingList
+          return this.$store.getters.movingList.subjects
         }
       },
       mounted(){

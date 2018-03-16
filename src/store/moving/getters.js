@@ -10,5 +10,14 @@ export const getters = {
   },
   num: state => {
     return state.num
+  },
+  left: state => {
+    return state.left
+  },
+  id: state => {
+    return state.id
+  },
+  movingDetails: state => {
+    return state.movingDetails
   }
 }

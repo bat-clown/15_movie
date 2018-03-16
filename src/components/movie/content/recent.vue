@@ -7,27 +7,26 @@
           <form action="get" class="gaia_frm" autocomplete="off">
             <div class="tags">
               <div class="tag-list">
-                <label-parent v-for="(item,index) in labelList" :item="item" :index="index" :key="index" @click="change(index)"></label-parent>
+                <label-parent v-for="(item,index) in labelList"  @click.native="change(index)"
+                              :item="item" :index="index" :key="index"></label-parent>
               </div>
             </div>
           </form>
         </div>
-        <a href="/explore#!type=movie&amp;tag=%E7%83%AD%E9%97%A8" class="more-link">更多»</a>
+        <a href="javascript:void(0);" class="more-link">更多»</a>
       </h2>
     </div>
     <div class="list-wp">
       <div class="slider">
         <div class="slide-container" style="height: 426px;">
           <div class="slide-wrapper" :style="{width:width+'px',left:left+'px'}">
-            <div class="slide-page" style="width: 700px;" v-for="(list,index) in num" :key="index">
-              <a-parent v-for="(item,index) in upComing.subjects" :key="index" :item="item"></a-parent>
-            </div>
+              <a-parent v-for="(item,index) in upComing" :key="index" :item="item"></a-parent>
           </div>
 
         </div>
         <div class="slide-ctrl ui-slide-control">
           <a class="btn-prev" href="javascript:void(0)" @click="prevClick"></a>
-            <i-parent v-for="(dot,indexD) in num" :key="indexD" :message="index" :indexD="indexD" @up="handle"></i-parent>
+            <i-parent v-for="(dot,indexD) in dots" :indexD="indexD" :key="indexD"></i-parent>
           <a class="btn-next" href="javascript:void(0)" @click="nextClick"></a>
         </div>
       </div>
@@ -37,56 +36,41 @@
 
 
 <script>
-  import Vue from 'vue';
-  var vm = new Vue();
   export default{
     data(){
       return {
         labelList: ['即将上映', 'top250'],
-        left: 0,
-        index:0
+        indexD:'',
+        index:''
       }
     },
     computed: {
-      num: function () {
-        let a = this.$store.getters.upComing.subjects.length;
-        return Math.ceil(a/10)
+      upComing:function () {
+        return this.$store.getters.upComing.subjects
+      },
+      left: function () {
+        return this.$store.getters.left
       },
       width: function () {
-        return this.num * 700;
+        return this.dots * 700;
+      },
+      dots: function () {
+        return Math.ceil(this.upComing.length/10)
       }
     },
     methods: {
       prevClick(){
-        this.left -= 700;
-        if (this.left < -700) {
-          this.left = 0
-        }
-        this.index++;
-        if (this.index > this.num - 1) {
-          this.index = 0;
-        }
+        this.$store.commit('PREVPAGE')
       },
       nextClick(){
-        this.left += 700;
-        if (this.left > 0) {
-          this.left = -700;
-        }
-        this.index--;
-        if (this.index < 0) {
-          this.index = this.num.length - 1;
-        }
-      },
-      handle(msg){
-        this.index = msg;
-        this.left = -700 * msg;
+        this.$store.commit('NEXTPAGE')
       },
       change (index) {
           if (index !== this.$store.getters.num) {
-            this.$store.commit('changeNum', {num: index})
-            if (this.$store.getters.num === 0) {
+            this.$store.commit('NUM', {num: index})
+            if (index === 1) {
               this.$store.dispatch('getTop250')
-            }else{
+            }else if(index === 0){
               this.$store.dispatch('getUpComing')
             }
           }
@@ -98,76 +82,9 @@
     },
 
     components: {
-      'a-parent': {
-        template: `
-              <a class="item" target="_blank" href="javascript:void(0)">
-                <div class="cover-wp">
-                  <img :src="item.images.small" :alt="item.title" @click="handle">
-                </div>
-                <p>{{item.title}}<strong>{{rate}}</strong></p>
-              </a>`,
-        props: ['item'],
-        computed:{
-            rate(){
-              return this.item.rating.average === 0 ? '' : this.item.rating.average;
-            }
-        },
-        methods:{
-            handle(){
-              this.$router.push('/subjects/'+this.item.id)
-            }
-        }
-      },
-      'i-parent': {
-        template: `
-            <i :class="classObject" @click="upload(indexD)"></i>
-          `,
-        props: ['message', 'indexD'],
-        data(){
-          return {}
-        },
-        computed: {
-          classObject: function () {
-            return {
-              dot: 'dot',
-              'activate': this.message === this.indexD
-            }
-          }
-        },
-        methods: {
-          upload(){
-            this.$emit('up', this.indexD)
-          }
-        }
-
-      },
-      'label-parent': {
-        template: `<label :class="{activate:isActive}">
-                      {{item}}
-                      <input type="radio" name="choice" :value="item" v-model="in_value">
-                   </label>`,
-        props: ['item','index'],
-        data(){
-          return {
-            in_value:''
-          }
-        },
-        methods:{
-//            change(index){
-//                if (index === 0) {
-//
-//                }
-//                this.$nextTick(function () {
-//                  this.isActive = this.in_value === this.item;
-//                })
-//            },
-        },
-        computed:{
-            isActive(){
-              return this.$store.getters.num === this.index
-            }
-        }
-      }
+      'a-parent': resolve => {require(['./recent/recent.vue'],resolve)},
+      'i-parent': resolve => {require(['./recent/dot.vue'],resolve)},
+      'label-parent': resolve => {require(['./recent/label.vue'],resolve)},
 
     }
   }
@@ -246,7 +163,7 @@
   }
 
   .gaia .tags label input {
-    /*display: none;*/
+    display: none;
   }
 
   .gaia .fliter-wp .more-link {

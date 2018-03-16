@@ -17,9 +17,14 @@ export const actions = {
       commit('UP_COMING', {list: res})
     })
   },
-  getTop250 ({commit,state}) {
+  getTop250 ({commit}) {
     util.get('/movie/top250').then(res => {
       commit('TOP_250', {list: res})
+    })
+  },
+  getDetails ({commit,state}) {
+    util.get('/movie/subject/'+state.id).then(res => {
+      commit('MOVING_DETAILS',{list: res})
     })
   }
 }

@@ -5,11 +5,9 @@
 export default {
   '/': {
     path: 'components/movie/content',
-    name: 'content'
   },
-  '/movieDetail': {
+  '/movingDetail': {
     path: 'components/movie/movieDetail',
-    name: 'movieDetail'
   }
 }
 

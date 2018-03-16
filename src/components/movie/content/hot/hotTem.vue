@@ -3,11 +3,11 @@
   <ul>
     <li class="poster">
       <a href="javascript:void(0);" target="">
-        <img :src="item.images.small" :alt="item.title" @click="handle" onerror="javascript:this.src='http://ww1.sinaimg.cn/large/6259bc22tw1ekt4n6metmj203c04qdfl.jpg';">
+        <img :src="item.images.small" :alt="item.title" @click="handle(item.id)">
       </a>
     </li>
     <li class="title">
-      <a href="javascript:void(0);" @click="handle">{{item.title}}</a>
+      <a href="javascript:void(0);">{{item.title}}</a>
     </li>
     <li class="rating">
       <span class="rating-star allstar45" v-if="seen"></span>
@@ -45,8 +45,8 @@
     },
     props:['item'],
     methods:{
-      handle(){
-        this.$router.push('/subjects/'+this.item.id)
+      handle(id){
+        this.$router.push({path:'/movieDetail',query: {id: id}});
       }
     }
   }

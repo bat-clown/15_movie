@@ -14,7 +14,12 @@ const state = {
   upComing: {
   subjects: []
   },
-  num: 0
+  num: 0,
+  left:0,    //carousel absolute left
+  id:0,
+  movingDetails: {
+    subjects: []
+  }
 }
 
 

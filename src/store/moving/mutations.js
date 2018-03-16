@@ -14,5 +14,26 @@ export const mutations = {
   },
   [types.NUM] (state, {num}) {
     state.num = num
+  },
+  [types.PREVPAGE] (state) {
+    state.left -= 700;
+    if (state.left < -700) {
+      state.left = 0
+    }
+  },
+  [types.NEXTPAGE] (state) {
+    state.left += 700;
+    if (state.left > 0) {
+      state.left = -700;
+    }
+  },
+  [types.CHANGEPAGE] (state, {indexD}) {
+    state.left = -700 * indexD
+  },
+  [types.IDCLICK] (state, {id}) {
+    state.id = id
+  },
+  [types.MOVING_DETAILS] (state, {list}) {
+    state.movingDetails = list
   }
 }
